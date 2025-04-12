@@ -1,0 +1,103 @@
+.vis {
+    width: 100vw;
+    height: 100%;
+    overflow: scroll;
+    text-align: center;
+}
+
+.vis > .tree {
+    padding: 0 10%;
+    margin: 0;
+}
+
+.sub-tree,
+.node-container {
+    position: relative;
+    margin: 0 auto;
+}
+
+.tree,
+.sub-tree {
+    display: flex;
+}
+
+.sub-tree.branches {
+    border-top: 1px solid;
+    position: relative;
+    margin-top: 12px;
+}
+
+.sub-tree.branches::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -8px;
+    width: 0;
+    height: 11px;
+    border: 1px solid var(--branch-line-color);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* @todo generalize, works for specific cases*/
+.hide-text-nodes .sub-tree.branches > .node-container.text:first-child + .node-container.element:not(:last-child)::before,
+.hide-text-nodes .sub-tree.branches > .node-container.element:nth-last-child(2)::after,
+/* @todo generalize, works for specific cases*/
+.hide-nbsp-br-nodes .sub-tree.branches > .node-container.element:nth-last-child(2)::after,
+.hide-nbsp-br-nodes .sub-tree.branches > .node-container.nbsp-br:first-child + .node-container.element:not(:last-child)::before,
+
+.sub-tree.branches > .node-container:first-child::before,
+.sub-tree.branches > .node-container:last-child::after {
+    content: '';
+    border: 1px solid var(--x-site-bg-color);
+    display: block;
+    position: absolute;
+    top: -2px;
+    width: 49.7%;
+    height: 0;
+}
+
+/* @todo generalize, works for specific cases*/
+.hide-text-nodes .sub-tree.branches > .node-container.text:first-child + .node-container.element:not(:last-child)::before,
+.hide-nbsp-br-nodes .sub-tree.branches > .node-container.nbsp-br:first-child + .node-container.element:not(:last-child)::before,
+
+.sub-tree.branches > .node-container:first-child::before {
+    left: 0;
+}
+
+/* @todo generalize, works for specific cases*/
+.hide-text-nodes .sub-tree.branches > .node-container.element:nth-last-child(2)::after,
+.hide-nbsp-br-nodes .sub-tree.branches > .node-container.element:nth-last-child(2)::after,
+
+.sub-tree.branches > .node-container:last-child::after {
+    right: 0;
+}
+
+.node {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 15px 15px 0;
+    border-radius: 100%;
+    border: 1px solid var(--branch-line-color);
+}
+
+.node::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    width: 0;
+    height: 15px;
+    border: 1px solid var(--branch-line-color);
+}
+
+.node .data {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 5px;
+}

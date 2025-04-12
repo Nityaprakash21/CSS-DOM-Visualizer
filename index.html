@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158582117-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158582117-1');
+    </script>
+    <script data-ad-client="ca-pub-4087460927104255" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta charset="UTF-8">
+    <meta name="author" content="Nitya Prakash Pattanaik" />
+    <meta name="description" content="Interactive DOM Tree Visualization" />
+    <meta name="keywords" content="interactive, dom, tree, visualization, education, js, javascript, html" />
+    <title>Nitya Prakash Pattanaik | Interactive DOM Tree Visualization</title>
+    <base href="./" />
+    <script src="lib/split/split.min.js"></script>
+    <script src="lib/ace/ace.min.js"></script>
+    <script src="lib/ace/modes/mode-html.js"></script>
+    <script src="lib/ace/themes/theme-monokai.js"></script>
+    <script src="lib/d3/d3.min.js"></script>
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <link rel="icon" href="assets/images/favicon/favicon.png" />
+</head>
+
+<body>
+    <header>
+        <h1>Interactive CSS Based DOM Visualization</h1>
+    </header>
+    <main>
+        <!-- Top split area including the controls and visualization area -->
+        <section class="split">
+            <!-- Visualization area -->
+            <div class="vis"></div>
+        </section>
+        <!-- Bottom split area including the HTML editor and the visualization run button -->
+        <section class="split">
+            <div class="controls">
+                <button class="run-visualization" title="Run Visualization" aria-label="Run Visualization">&#9658;</button>
+                <!-- Dark mode control -->
+                <div class="control">
+                    <button class="dark-mode" title="Toggle Dark Mode" aria-label="Toggle Dark Mode"></button>
+                </div>
+
+                <!-- Element nodes control -->
+                <div class="control" title="Element Node" aria-label="Element Node">
+                    <div class="node element"></div>
+                </div>
+                <!-- Text nodes control -->
+                <div class="control">
+                    <input id="toggle-text-nodes" class="control-nodes-view" type="checkbox" checked value="text" />
+                    <ul>
+                        <li>
+                            <label for="toggle-text-nodes" title="Toggle Text Nodes" aria-label="Toggle Text Nodes" tabindex="0">
+                                <div class="node text"></div>
+                            </label>
+                            <input id="toggle-nbsp-br-text-nodes" class="control-nodes-view" type="checkbox" value="nbsp-br" />
+                            <label for="toggle-nbsp-br-text-nodes" title="Toggle Enter and Spaces Nodes" aria-label="Toggle Enter and Spaces Nodes" tabindex="0"></label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Comment nodes control -->
+                <div class="control" title="Toggle Comment Nodes" aria-label="Toggle Comment Nodes">
+                    <input id="toggle-comment-nodes" class="control-nodes-view" type="checkbox" checked value="comment" />
+                    <label for="toggle-comment-nodes" tabindex="0">
+                        <div class="node comment"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="editor"></div>
+        </section>
+    </main>
+    <footer>
+        <h2>Created with ☕ and ❤️ by <a href="https://www.linkedin.com/in/barakpinch/" target="_blank" rel="nofollow">Nitya Prakash Pattanaik</a></h2>
+    </footer>
+    <script src="src/js/consts/node-types.js"></script>
+    <script src="src/js/init.js"></script>
+    <script src="src/js/vis.js"></script>
+    <script src="src/js/index.js"></script>
+</body>
+
+</html>
